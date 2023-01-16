@@ -1,0 +1,55 @@
+.media {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding: 5px;
+    margin: 5px 0;
+    background-color:#002728;
+    border-radius: 10px;
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    gap : 10px;
+    position : relative;
+  }
+  
+  .media:hover {
+    background-color:#009688;
+  }
+  
+  @media (max-width: 550px) {
+    .media {
+      width: 46%;
+    }
+  }
+  
+  .poster {
+    border-radius: 10px;
+  }
+  
+  .title {
+    width: 100%;
+    text-align: center;
+    font-size: 17px;
+    padding: 8px 0;
+    color : #f1e8dc;
+  }
+  
+  .subTitle {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 3px;
+    padding: 0 2px;
+    padding-bottom: 3px;
+    color: #f1e8dc
+  }
+
+  .rating{
+    color: #f1e8dc;
+    position: absolute;
+    top : 8px;
+    right: 10px;
+    display: block;
+    background: #f1e8dc;
+    color: #004346;
+    border-radius: 6px;
+  }
