@@ -5,7 +5,12 @@ const  EntertainmentObject = ({itemObject,type}) =>{
 
   const getType = ()=>{
     if(type === undefined){
-      return itemObject.media_type === "tv" ? "TV Series" : "Movie"
+      if(itemObject.media_type === "tv"){
+        return  "TV Series" 
+      }  
+      else if(itemObject.media_type === "movie"){
+        return "Movie"
+      }      
     }
     else {
       return type
@@ -13,11 +18,23 @@ const  EntertainmentObject = ({itemObject,type}) =>{
   }
 
   const getTitle = () =>{
-    if(type === "Movie"){
+    if(itemObject.media_type === "tv"){
       return itemObject.title
     }
-    else if(type === "TV Series"){
+    else if(itemObject.media_type === "movie" || itemObject.media_type === "person" ){
       return itemObject.name
+    }
+  }
+
+  const getProfilePicture = () =>{
+    if(itemObject.media_type === "person" && itemObject.profile_path !== null){
+      return `${IMG_300}${itemObject.profile_path}`
+    }
+    else if(itemObject.poster_path !== null){
+      return `${IMG_300}${itemObject.poster_path}`
+    }
+    else {
+      return unavailable
     }
   }
 
@@ -25,13 +42,13 @@ const  EntertainmentObject = ({itemObject,type}) =>{
       <div key={itemObject.id} className="media">
       <img
         className="poster"
-        src={itemObject.poster_path ? `${IMG_300}${itemObject.poster_path}` : unavailable}
+        src={getProfilePicture()}
         alt={itemObject.title}
       />
       <b className="title">{getTitle()}</b>
       <span className="subTitle" >
         {getType()}
-        <span className="subTitle">{itemObject.release_date}</span>
+        <span className="subTitle">{itemObject.media_type === "tv" ? itemObject.first_air_date :itemObject.release_date}</span>
       </span>
       <span className="rating" >
       {itemObject.vote_average}

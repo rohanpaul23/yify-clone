@@ -27,8 +27,8 @@ const Home = () => {
             fontWeight : "300"
         }}> 
           <p style={{
-            paddingLeft : "38px",
-        }}>We have a collection of latest,movies and tv-shows</p>
+            paddingLeft : "5px",
+        }}>We have a collection of trending movies,tv-shows and people</p>
             <p>We have over 1000+ movies and tv-shows across all languages</p>  
           <p>YIFY provides support for filtering of content by name,genre etc</p></div>
           <div 

@@ -1,11 +1,19 @@
 import React from 'react'
 import Pagination from "@material-ui/lab/Pagination";
+import { useEffect } from "react";
 
 
-const MuiPagination = ({ setPage, numOfPages = 10 }) => {
+const MuiPagination = ({ setPage, numOfPages = 10,currentPage }) => {
+
+
+  useEffect(() => {
+    console.log(typeof currentPage)
+  }, [currentPage])
+
      // Scroll to top when page changes
   const handlePageChange = (page) => {
-    setPage(page);
+    console.log(typeof page)
+    setPage(Number(page));
     window.scroll(0, 0);
   };
     return (
@@ -23,8 +31,8 @@ const MuiPagination = ({ setPage, numOfPages = 10 }) => {
               count={numOfPages}
               color="primary"
               size="large"
+              page={Number(currentPage)}
             />
-          
         </div>
       );
 }

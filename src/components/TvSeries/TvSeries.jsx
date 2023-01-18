@@ -53,7 +53,7 @@ function TvSeries({type,filterByGenre,filterByName}) {
               />
           })}
           {totalPages > 1 && (
-        <MuiPagination setPage={setCurrentPage} numOfPages={totalPages} />
+        <MuiPagination setPage={setCurrentPage} numOfPages={totalPages} currentPage={currentPage} />
       )}
       </div>
   );
